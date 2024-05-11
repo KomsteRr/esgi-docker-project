@@ -1,0 +1,41 @@
+services:
+  composer:
+    image: esgi-composer
+    container_name: composer
+    tty: true
+    volumes:
+      - composerFiles:/usr/local/bin
+      - phpFile:/usr/bin/
+      - phpExtensions:/usr/lib/
+      - phpExtensions2:/etc/php82/
+  
+  symfony:
+    image: esgi-symfony
+    container_name: symfony
+    tty: true
+    volumes:
+      - composerFiles:/usr/local/bin
+      - phpFile:/usr/bin/
+      - phpExtensions:/usr/lib/
+      - phpExtensions2:/etc/php82/
+      - ./symfony/:/home/
+    environment:
+      SYMFONY_PROJECT_NAME: projet-docker
+      DATABASE_URL: "postgresql://esgi:esgi@localhost:5432/esgi?serverVersion=16&charset=utf8"
+    ports:
+      - 8000:80
+    # networks:
+    #   - bridge
+    depends_on:
+      - composer
+
+volumes:
+  composerFiles:
+  phpFile:
+  phpExtensions:
+  phpExtensions2:
+
+networks:
+  bridge:
+    name: bridge
+    external: true
