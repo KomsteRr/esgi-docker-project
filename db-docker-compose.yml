@@ -1,0 +1,21 @@
+services:
+  database:
+    image: esgi-postgres
+    container_name: postgres
+    tty: true
+    volumes:
+      - database:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: esgi
+      POSTGRES_PASSWORD: esgi
+      POSTGRES_DB: esgi
+
+  adminer:
+    image: esgi-adminer
+    ports:
+      - 8080:80
+    depends_on:
+      - database
+
+volumes:
+  database:

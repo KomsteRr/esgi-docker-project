@@ -1,0 +1,19 @@
+FROM alpine
+
+COPY entrypoint-adminer.sh /docker-entrypoint.sh
+
+RUN apk --update add wget \
+                     php \
+                     php-session \
+                     php-pgsql \
+                     openssl \
+                     python3
+
+RUN wget -P /opt/adminer/ https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
+
+RUN chmod +x /docker-entrypoint.sh
+
+EXPOSE 80
+EXPOSE 5432
+
+ENTRYPOINT [ "/docker-entrypoint.sh" ]

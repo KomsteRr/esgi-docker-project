@@ -1,0 +1,24 @@
+FROM alpine
+
+ENV LANG en_US.utf8
+ENV POSTGRES_USER "test"
+ENV POSTGRES_PASSWORD "test"
+ENV POSTGRES_DB "test"
+
+COPY entrypoint-postgres.sh /docker-entrypoint.sh
+
+RUN apk --update add postgresql
+
+RUN mkdir /run/postgresql
+RUN mkdir /var/lib/postgresql/data
+
+RUN chown postgres:postgres /run/postgresql
+RUN chown postgres:postgres /var/lib/postgresql/data
+
+RUN chmod +x /docker-entrypoint.sh
+
+USER postgres
+
+EXPOSE 5432
+
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
