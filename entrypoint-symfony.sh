@@ -2,7 +2,7 @@
 
 cd /home
 
-if [ -z "$(ls -A /home/)"]; then
+if [ -n "$(find "/home/" -maxdepth 0 -type d -empty 2>/dev/null)" ]; then
     echo "Aucun projet setup"
 
     composer create-project symfony/skeleton:"7.0.*" $SYMFONY_PROJECT_NAME
@@ -18,7 +18,9 @@ fi
 
 # export LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
 
-# caddy run --config /caddyfile
+# caddy fmt --overwrite /etc/caddy/CaddyFile
+
+# caddy run --watch --config /etc/caddy/CaddyFile --adapter caddyfile
 php -S 0.0.0.0:80 ./public/index.php
 
 exec "/bin/sh"

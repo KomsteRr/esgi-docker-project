@@ -21,8 +21,18 @@ Composer :
     docker build . -t esgi-composer -f Dockerfile.composer
 ```
 
+Symfony :
+```
+    docker build . -t esgi-symfony -f Dockerfile.symfony
+```
+
 ### Docker Compose
 Docker Compose DB + Adminer :
 ```
     docker compose up db-docker-compose.yml up
+```
+
+Docker Compose Composer + Symfony :
+```
+    docker compose up symfony-docker-compose.yml up
 ```

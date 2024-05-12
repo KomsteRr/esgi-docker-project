@@ -3,18 +3,15 @@ FROM alpine
 ENV SYMFONY_PROJECT_NAME "esgi"
 ENV DATABASE_URL "postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
 
-RUN apk --update add wget \
-                     pcre \
-                     openssl \
-                     curl \
-                     ca-certificates \
-                     caddy
+RUN apk --update add wget pcre curl
 
 COPY entrypoint-symfony.sh /docker-entrypoint.sh
 
-# RUN wget -P /etc/nginx/conf.d/default.conf https://gist.github.com/KomsteRr/39c709cb3ce5f195342ee0859927a634.js
-# RUN curl -o caddyfile -s https://gist.github.com/KomsteRr/1a017c944cac2d6100802e59dc9faf1c.js
+COPY CaddyFile /etc/caddy/CaddyFile
 
 RUN chmod +x /docker-entrypoint.sh
+
+EXPOSE 8001
+EXPOSE 2019
 
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
