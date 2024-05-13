@@ -7,11 +7,8 @@ RUN apk --update add wget pcre curl
 
 COPY entrypoint-symfony.sh /docker-entrypoint.sh
 
-COPY CaddyFile /etc/caddy/CaddyFile
-
 RUN chmod +x /docker-entrypoint.sh
 
-EXPOSE 8001
-EXPOSE 2019
+EXPOSE 80
 
 ENTRYPOINT [ "/docker-entrypoint.sh" ]

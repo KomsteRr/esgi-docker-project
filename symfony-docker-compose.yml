@@ -26,8 +26,6 @@ services:
       DATABASE_URL: "postgresql://esgi:esgi@localhost:5432/esgi?serverVersion=16&charset=utf8"
     ports:
       - 8000:80
-    # networks:
-    #   - bridge
     depends_on:
       - composer
 

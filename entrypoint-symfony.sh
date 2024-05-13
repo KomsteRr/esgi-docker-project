@@ -16,11 +16,6 @@ else
     cd $SYMFONY_PROJECT_NAME
 fi
 
-# export LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
-
-# caddy fmt --overwrite /etc/caddy/CaddyFile
-
-# caddy run --watch --config /etc/caddy/CaddyFile --adapter caddyfile
 php -S 0.0.0.0:80 ./public/index.php
 
 exec "/bin/sh"
