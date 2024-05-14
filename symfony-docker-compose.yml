@@ -23,7 +23,7 @@ services:
       - ./symfony/:/home/
     environment:
       SYMFONY_PROJECT_NAME: projet-docker
-      DATABASE_URL: "postgresql://esgi:esgi@localhost:5432/esgi?serverVersion=16&charset=utf8"
+      DATABASE_URL: "postgresql://esgi:esgi@database:5432/esgi?serverVersion=16&charset=utf8"
     ports:
       - 8000:80
     depends_on:

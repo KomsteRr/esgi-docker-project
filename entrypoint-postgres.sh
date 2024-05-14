@@ -10,5 +10,6 @@ pg_ctl -D /var/lib/postgresql/data -w start
 
 psql -c "create user $POSTGRES_USER with login password '$POSTGRES_PASSWORD'" postgres
 psql -c "create database $POSTGRES_DB with owner = $POSTGRES_USER" postgres
+psql -c "ALTER USER $POSTGRES_USER CREATEDB" postgres
 
 exec "bin/sh"
