@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des todos{% endblock %}
+
+{% block body %}
+    <h1>Liste des todos</h1>
+    {% for todo in todo %}
+        <h2>{{ todo.titre }}</h2>
+    {% endfor %}
+{% endblock %}
