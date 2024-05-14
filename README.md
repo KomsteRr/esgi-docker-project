@@ -29,10 +29,10 @@ Symfony :
 ### Docker Compose
 Docker Compose DB + Adminer :
 ```
-    docker compose up db-docker-compose.yml up
+    docker compose -f db-docker-compose.yml up
 ```
 
 Docker Compose Composer + Symfony :
 ```
-    docker compose up symfony-docker-compose.yml up
+    docker compose -f symfony-docker-compose.yml up
 ```
