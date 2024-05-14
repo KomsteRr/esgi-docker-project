@@ -13,6 +13,7 @@ RUN apk --update add wget \
                      php-xml \
                      phpunit \
                      php-dom \
+                     php-pdo_pgsql \
                      php-tokenizer
 
 
