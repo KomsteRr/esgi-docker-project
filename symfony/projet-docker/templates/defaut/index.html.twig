@@ -3,8 +3,25 @@
 {% block title %}Liste des todos{% endblock %}
 
 {% block body %}
-    <h1>Liste des todos</h1>
-    {% for todo in todo %}
-        <h2>{{ todo.titre }}</h2>
-    {% endfor %}
+    <h1 class="header">Liste des todos</h1>
+    <table class="custom-table">
+        <thead>
+            <tr class="table-head">
+                <th class="table-cell">Id</th>
+                <th class="table-cell">Titre</th>
+                <th class="table-cell">Done</th>
+                <!-- Ajoutez d'autres en-têtes de colonne si nécessaire -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todo %}
+                <tr>
+                    <td class="table-cell">{{ todo.id }}</td>
+                    <td class="table-cell">{{ todo.titre }}</td>
+                    <td class="table-cell"> <input type="checkbox" disabled {% if todo.done %}checked{% endif %}></td>
+                    <!-- Ajoutez d'autres cellules ici pour d'autres attributs de todo -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

@@ -1,3 +1,24 @@
 body {
     background-color: skyblue;
 }
+
+.header {
+    font-size: 1.5rem; /* équivalent à text-2xl dans Tailwind */
+    font-weight: bold;
+    margin-bottom: 1rem; /* équivalent à mb-4 dans Tailwind */
+}
+
+.custom-table {
+    width: 100%; /* équivalent à min-w-full dans Tailwind */
+    border-collapse: collapse; /* pour que les bordures des cellules se fondent en une seule */
+}
+
+.table-head {
+    background-color: #f7fafc; /* équivalent à bg-gray-100 dans Tailwind */
+}
+
+.table-cell {
+    border: 1px solid #d1d5db; /* équivalent à border-gray-300 dans Tailwind */
+    padding: 16px; /* équivalent à p-4 dans Tailwind */
+    text-align: left; /* équivalent à text-left dans Tailwind */
+}
